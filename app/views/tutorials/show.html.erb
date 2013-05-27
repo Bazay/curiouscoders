@@ -1,5 +1,6 @@
 <%= render :partial => @tutorial %>
 
+<div class="content_box">
 <h3>Comments</h3>
 <% @tutorial.posts.each do |post| %>
 	<p><%= post.content %></p>
@@ -15,3 +16,8 @@
   </div>
     <%= f.button :submit, "Add your comment" %>
 <% end %>
+</div>
+
+<div class="content_box">
+<%= link_to "<i class='icon-arrow-left icon-small'></i> Back".html_safe, tutorials_path %>
+</div>

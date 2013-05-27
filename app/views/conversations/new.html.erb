@@ -1,9 +1,20 @@
-<h1>&nbsp;<i class="icon-comments-alt icon-large"></i>&nbsp; Start a conversation</h1>
+<%= content_for :title, "Start a new conversation!" %>
+
+<div class="content_box">
+<h2>&nbsp;<i class="icon-comments icon-large"></i>&nbsp; Start a conversation</h2>
+</div>
+
+<div class="content_box">
+<% if @conversation.tutorial %>
 <p class="lead"><%= link_to @conversation.tutorial.title, @conversation.tutorial %></p>
+<% end %>
 <p>Learning Rails is better with friends, so let's start a conversation!</p>
 <p>It's best to attempt a tutorial alone, using Google Search, Stack Overflow and any other online resources you need.  It's great to be self-reliant, but if you really get stuck, don't hesitate to start discussions before you complete the tutorial.  After everyone has given the tutorial a go, get together and discuss what made sense, what didn't or where you got stuck.</p>
 
 
 <%= render 'form' %>
+</div>
 
-<%= link_to 'Back', conversations_path %>
+<div class="content_box">
+<%= link_to "<i class='icon-arrow-left icon-small'></i> Back".html_safe, conversations_path %>
+</div>

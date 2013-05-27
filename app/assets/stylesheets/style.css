@@ -63,6 +63,15 @@
 	border-top: 1px #bababa solid;
 	background-color:#fff;
 }
+.horizontal_line_single {
+	height:1px;
+	width:100%;
+	display:block;
+	background-color:#d0d0d0;
+	float:left;
+	clear:none;
+	margin:10px 0;
+}
 
 .footer {
 	width:100%;
@@ -112,7 +121,7 @@
 	width:918px;
 }
 .content_side .content_box {
-	width:338px;
+	width:298px;
 }
 .content .content_box {
 	width:560px;

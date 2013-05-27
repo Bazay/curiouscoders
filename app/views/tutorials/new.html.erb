@@ -1,6 +1,13 @@
-<div class="container-narrow">
-	<h2>New tutorial</h2>
+<%= content_for :title, "Create a new tutorial!" %>
 
+<div class="content_box">
+<h2>&nbsp;<i class="icon-book icon-large"></i>&nbsp; Create a new tutorial</h2>
+</div>
+
+<div class="content_box">
 	<%= render 'form' %>
+</div>
 
-<br><%= link_to 'Back', tutorials_path, :class => "btn" %>
+<div class="content_box">
+<%= link_to "<i class='icon-arrow-left icon-small'></i> Back".html_safe, tutorials_path %>
+</div>

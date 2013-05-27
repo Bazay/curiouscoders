@@ -1,13 +1,11 @@
 <%= content_for :title, "Showing all teams" %>
+
 <div class="content_box">
 <h2><i class='icon-group icon-large'></i> Teams</h2>
-
-<div class="float_clear margin_top_20px width_100">
-  <%= render 'list_teams' %>
 </div>
 
-
-<div class="float_clear margin_top_20px">
-	<%= link_to 'New Team', new_team_path, :class => 'btn btn-success' %>
+<div class="content_box">
+<div class="float_clear width_100">
+  <%= render 'list_teams' %>
 </div>
 </div>

@@ -1,18 +1,26 @@
-<h1><%= @user.name %></h1>
+<%= content_for :title, "#{@user.name}" %>
 
-<hr>
 <% if !(current_user == @user) %>
-  <a href="#sendMessage" role="button" class="btn" data-toggle="modal">Message</a>
-  <%= render 'message_form' %>
-<hr>
+  <div class="navbar" style="margin-bottom:0;"> 
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li><a href="#sendMessage" role="button" data-toggle="modal">Message</a><%= render 'message_form' %></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
 <% end %>
 
+
+<div class="content_box">
 <h3>General</h3>
-<div class=""><%= gravatar_for @user %></div>
+<div class="image_frame"><%= gravatar_for @user %></div>
 <p><b>Country:</b> <%= @user.location if @user.location %></p>
 <p><b>Time Zone:</b> <%= @user.time_zone if @user.time_zone %></p>
 <p><b>Contact:</b> <%= @user.email+" (email)"if @user.email %></p>
+</div>
 
+<div class="content_box">
 <h3>Personal Details</h3>
 <p><b>First name:</b> <%= @user.firstname if @user.firstname %></p>
 <p><b>Last name:</b> <%= @user.lastname if @user.lastname %></p>
@@ -20,25 +28,43 @@
 <p><b>Occupation:</b> <%= @user.occupation if @user.occupation %></p>
 <p><b>Google+:</b> <%= link_to('My Profile', @user.google_plus) if @user.google_plus %></p>
 <div class=""><b>About Me:</b> <%= simple_format h(@user.about) if @user.about %></div>
+</div>
 
-<h2>Post on <%= @user.name %>'s profile</h2>
+<div class="content_box">
+<h3>Post on <%= @user.name %>'s profile</h3>
 <%= simple_form_for(Post.new) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :content %>
+    <%= f.text_area :content %>
     <%= f.hidden_field 'postable_id', :value => @user.id %>
     <%= f.hidden_field 'postable_type', :value => 'user' %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit, :class => "btn-success" %>
+
 <% end %>
 
-<h2>All Replies</h2>
-<% @user.posts.each do |post| %>
-	<p>Posted by <%= link_to post.user.name, post.user %> on <%= post.created_at.strftime("%e %b %y") %></p>
-	<p><%= post.content %></p>
-	<hr></hr>
+<div class="horizontal_line float_clear margin_top_20px margin_bottom_20px"></div>
 
-<% end %>	
+  <% @user.posts.each do |post| %>
+    <div class="float_clear">
+      <div class="image_frame float_left clear_none">
+        <%= gravatar_for(post.user) %>
+      </div>
+      <div class="float_left clear_none margin_left_20px">
+      	<p>Posted by <%= link_to post.user.name, post.user %> on <%= post.created_at.strftime("%e %b %y") %></p>
+      	<p><%= post.content %></p>
+        <% if can? :destroy, :posts %>
+          <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "font_weight_bold" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="horizontal_line_single"></div>
+
+  <% end %>
+
+  <% if !@user.posts %>
+    <p>There are currently no posts on this users wall. Why not write one!</p>
+  <% end %>
+
+</div>	

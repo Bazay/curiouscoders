@@ -1,62 +1,11 @@
-<div>
-<h2><i class='icon-book icon-large'></i> Library</h2>
+<%= content_for :title, "Browse the Library!" %>
+<%= content_for :show_tabs, "tutorials_index" %> <!-- Enable tabs to be show for tutorial index, tabs are in application layout html -->
 
-<%= render :partial => @tutorials %>
-
-<%= link_to 'New Tutorial', new_tutorial_path, :class => "btn btn-primary" %>
-</div>
-
-
-
-<!-- Shal's Syllabus -->
-<div class = "container" align="justify">
-  <div class="span6">
-  <center><h2>Building apps is<br>
-         more fun with friends</h2></center>
-      </div>
-<div class="span3 pull-right">
-       <%= link_to 'Login', new_user_session_path, :class => "btn btn-primary", :style => "color:white;" %><br><br>
-        <%= link_to 'Sign up', new_user_registration_path, :class => "btn btn-primary", :style => "color:white;" %>
-      </div>
-</div>
-<br>
-<br>
-<br>
-<hr>
-<br>
-<br>
-<div class = "container">
-  <div class="span12">
-<center><h3>Browse our Library</h3></center>
+<div id="tabGroupContent" class="tab-content">
+  <div class="tab-pane fade in active" id="tutorial_syllabus">
+    <%= render 'syllabus' %>
+  </div>
+  <div class="tab-pane fade" id="tutorial_library">
+    <%= render 'library' %>
   </div>
 </div>
-
-<hr>
-<div class = "container" align="justify">
-  <div class="span12">
-<h5>Basics</h5><br>
-    <a href="http://www.codecademy.com/tracks/ruby" target="_blank">Introduction to programming with Ruby</a><br>
-    <a href="http://ruby.learncodethehardway.org/book/" target="_blank">Learn Ruby the hard way</a><br>
-    <a href="http://www.w3schools.com/html/html_quick.asp" target="_blank">HTML Basics</a><br>
-    <a href="http://www.w3schools.com/cssref/default.asp" target="_blank">CSS Basics</a><br>
-    <a href="http://www.vogella.com/articles/Git/article.html" target="_blank">Git Basics</a><br>
-    <a href="https://github.com/" target="_blank">Create your account on Git Hub</a><br>
-    <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">Javascript Basics</a><br>
-    <a href="http://www.w3schools.com/js/js_libraries.asp" target="_blank">Javascript Libraries</a><br>
-    <a href="http://jquery.com/" target="_blank">JQuery Basics</a><br>
-  </div>
-</div>
-<br>
-<br>
-<div class = "container">
-  <div class="span12">
-<h5>Rails</h5><br>
-    <a href="http://en.wikipedia.org/wiki/Ruby_on_Rails" target="_blank">What is Ruby on Rails?</a><br>
-    <a href="http://weblog.rubyonrails.org/2013/2/25/Rails-4-0-beta1/">Introduction to Rails</a><br>
-    <a href="http://guides.rubyonrails.org/getting_started.html" target="_blank">Getting started with Rails</a><br>
-    <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book" target="_blank">Book on Rails</a><br>
-  </div>
-</div>
-
-
-

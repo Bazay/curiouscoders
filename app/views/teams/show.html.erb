@@ -1,5 +1,5 @@
 <%= content_for :title, "#{@team.name}" %>
-<%= content_for :show_tabs, "true" %>
+<%= content_for :show_tabs, "team_show" %>
 
 <div class="navbar" style="margin-bottom:0;"> 
   <div class="navbar-inner">
@@ -22,4 +22,6 @@
 
 <div class="horizontal_line"></div>
 
-<%= link_to 'See all teams', teams_path %>
+<div class="content_box">
+<%= link_to "<i class='icon-arrow-left icon-small'></i> Back".html_safe, teams_path %>
+</div>

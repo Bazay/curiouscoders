@@ -3,16 +3,17 @@ class SearchController < ApplicationController
   def index
   	@tutorials = Tutorial.all
   	if params[:search].present?
-  		get_search_results
+  		get_search_results(params[:search])
   	end
   end
 
   private 
 
-  def get_search_results
+  def get_search_results(search_params)
     @found_results = []
+    @search_string = search_params.to_s.downcase #put to lowercase as all tags are saved in lowercase
     @tutorials.each do |tutorial|
-      if tutorial.tags.find_by_name(params[:search])
+      if tutorial.tags.find_by_name(@search_string)
         @found_results << tutorial
       end         
     end

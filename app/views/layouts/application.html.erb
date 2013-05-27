@@ -28,15 +28,27 @@
 
       <!-- TABS -->
       <% if content_for?(:show_tabs) %>
-      <div style="background-color:#d7d7d7;width:100%;">
-        <div class="container">
-          <ul id="tabGroup" class="nav nav-tabs" style="margin-bottom:0;padding-left:50px;">
-            <li class="active"><a href="#team_details" data-toggle="tab">Details</a></li>
-            <li><a href="#team_wall" data-toggle="tab">Wall</a></li>
-            <li><a href="#team_study_plan" data-toggle="tab">Study Plan</a></li>
-          </ul>
-        </div>
-      </div>
+        <% show_tabs = yield(:show_tabs) %>
+        <% if show_tabs == "team_show" %>
+          <div style="background-color:#d7d7d7;width:100%;">
+            <div class="container">
+              <ul id="tabGroup" class="nav nav-tabs" style="margin-bottom:0;padding-left:50px;">
+                <li class="active"><a href="#team_details" data-toggle="tab">Details</a></li>
+                <li><a href="#team_wall" data-toggle="tab">Wall</a></li>
+                <li><a href="#team_study_plan" data-toggle="tab">Study Plan</a></li>
+              </ul>
+            </div>
+          </div>
+        <% elsif show_tabs == "tutorials_index" %>
+          <div style="background-color:#d7d7d7;width:100%;">
+            <div class="container">
+              <ul id="tabGroup" class="nav nav-tabs" style="margin-bottom:0;padding-left:50px;">
+                <li class="active"><a href="#tutorial_syllabus" data-toggle="tab">Syllabus</a></li>
+                <li><a href="#tutorial_library" data-toggle="tab">Tutorial Library</a></li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
       <% else %>
         <div class="horizontal_line"></div>
       <% end %>

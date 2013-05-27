@@ -15,17 +15,8 @@ Role.create([
 puts 'DEFAULT USERS'
 user = User.create! :name => 'Administrator', 
 :email => 'admin@example.com', 
-:password => 'password', 
-:password_confirmation => 'password'
-puts 'user: ' << user.name
-#user.confirm!
-user.add_role :admin
-
-puts 'Baron (Temp)'
-user = User.create! :name => 'BARON', 
-:email => 'dreamspacebb@gmail.com', 
-:password => 'password', 
-:password_confirmation => 'password'
+:password => ENV['ADMIN_PASSWORD'].dup, 
+:password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.name
 #user.confirm!
 user.add_role :admin

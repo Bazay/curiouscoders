@@ -1,11 +1,13 @@
-<br>
-<br>
-<h2>Some words about us:</h2>
+<%= content_for :title, "About Us" %>
 
-<p>Email us at:
-      <ul>
-            <li><%= link_to 'david@railsforsnails.com', 'mailto:david@railsforsnails.com' %></li>
-            <li><%= link_to 'baron@railsforsnails.com', 'mailto:baron@railsforsnails.com' %></li>
-            <li><%= link_to 'shal@railsforsnails.com', 'mailto:shal@railsforsnails.com' %></li>
-      </ul>
+<div class="content_box">
+<h2>Where you can find us!</h2>
+</div>
+
+<div class="content_box">
+<p>Check us out at our blogs!<br>
+<br>
+<%= link_to 'Baron Bloomer - Website GUI, Coder', 'http://www.baronbloomer.com' %><br>
+<%= link_to 'David Evans - Coder', 'http://www.sonr.fm/about' %><br>
+<%= link_to 'Shal Nirwal - Coder', 'http://www.shalininirwal.com' %><br>
 </p>

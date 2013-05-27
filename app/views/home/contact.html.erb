@@ -1,5 +1,6 @@
 <% content_for :title, "Contact Us" %>
 
+<div class="content_box">
 <% if user_signed_in? %>
       <%= simple_form_for(Message.new) do |f| %>
             <p>To: Admin</p>
@@ -26,3 +27,4 @@
             <li><%= link_to 'shal@railsforsnails.com', 'mailto:shal@railsforsnails.com' %></li>
       </ul>
 </p>
+</div>

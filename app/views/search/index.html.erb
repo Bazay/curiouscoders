@@ -1,15 +1,11 @@
 <%= content_for :title, "Search Results" %>
 
-<% if !@found_results == [] %>
+<% if !@found_results.empty? %>
   <% @found_results.each do |tutorial| %>
-    <div>
-        <h3><%= link_to tutorial.title, tutorial %>: <%= tutorial.hours %> hours</h3>
-        <p><%= tutorial.about.html_safe %></p>
-        <p class="lead"><%= link_to tutorial.url, url_with_protocol(tutorial.url) %></p>
-        
-        <hr>
-    </div>
+    <%= render :partial => tutorial %>
   <% end %>
 <% else %>
-  <p>Your search did not find anything! Sad snail @:(</p>
+	<div class="content_box">
+	  <p>Your search term '<%= @search_string %>' did not find anything! Sad snail @:(</p>
+	</div>
 <% end %>
